@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <title>Mongoose - Network </title>
+  </head>
+  <body>
+    <nav>
+       <div class="nav-wrapper">
+         <a href="/" class="brand-logo">Mongoose - Network</a>
+       </div>
+     </nav>
+     <div class="container">
+       <h1>Network Members</h1>
+       <a href="/members/add" class="btn waves-effect waves-light">Join the network</a>
+       <% for(var i=0; i<member.length; i++) { %>
+         <div class="row">
+           <div class="col s12 m6">
+             <div class="card-panel teal lighten-2">
+               <div class="card-content white-text">
+                 <span class="card-title">Name: <%= member[i].name %></span>
+                 <p>Country: <%= member[i].country %></p>
+                 <p>Gender: <%= member[i].gender %></p>
+                 <p>Age: <%= member[i].age %></p>
+               </div>
+               <div class="card-action">
+                 <a class="btn-floating btn-large waves-effect waves-light red" href="/members/<%= member[i].id %>">
+                   <i class="medium material-icons">mode_edit</i>
+                 </a>
+                 <form class="" action="/destroy/<%= member[i].id %>" method="post">
+                   <input type="submit" class="waves-effect waves-teal btn-flat" name="edit" value="Remove member">
+                 </form>
+              </div>
+             </div>
+           </div>
+         </div>
+       <% } %>
+
+
+      </div>
+  </body>
+</html>

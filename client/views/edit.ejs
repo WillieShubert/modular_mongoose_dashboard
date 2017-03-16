@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <title>Mongoose - User Editor</title>
+  </head>
+  <body>
+    <nav>
+       <div class="nav-wrapper">
+         <a href="/" class="brand-logo">Mongoose - Network</a>
+       </div>
+     </nav>
+     <form class='container' action='/members/<%= member[0].id %>', method='POST'>
+       <p>Name:</p><input type='text' name='name' value= '<%= member[0].name %>' >
+       <p>Email:</p><input type='text' name='email' value= '<%= member[0].email %>' >
+       <p>Country:</p><input type='text' name='country' value= '<%= member[0].country %>' >
+       <label>Gender</label>
+       <select name='gender' class="browser-default">
+         <option value="" disabled selected>Please provide your gender</option>
+         <option value="Female">Female</option>
+         <option value="Male">Male</option>
+         <option value="Other">Other</option>
+         <option value="choose not to state">I choose not to state</option>
+       </select>
+       <p>Age:</p><input type='number' name="age" min="1" max="120" value= '<%= member[0].age %>'></input>
+       <br><input type='submit' value='Update profile'></br>
+     </form>
+  </body>
+</html>
